@@ -1,24 +1,45 @@
 package com.sibisoft.ttd.training;
+
+import java.lang.reflect.Method;
 /*
  * By Nazia Khairani
- * Chapter # 19
+ * Chapter # 20 
  * Dated 4th January 2015
  */
 public class TestCase {
-	String name;
+ 	
+ 	private String testMethodName;
+ 	
+ 	public TestCase(String testMethodName){
+ 		this.testMethodName = testMethodName;
+ 	}
+ 	
+ 	public String getTestMethodName() {
+ 		return testMethodName;
+ 	}
+ 	public void setTestMethodName(String testMethodName) {
+ 		this.testMethodName = testMethodName;
+ 	}
+ 
+ 	public void run(){
+ 		try{
+ 			setUp();
+ 			Method method = this.getClass().getMethod(testMethodName);
+ 			method.invoke(this);
+			tearDown();
+ 		}
+ 		catch(Exception exp){
+ 			exp.getMessage();
+ 		}
+    	 
+ 	}
+ 	
+    public void setUp() {
+ 		
+    }
 	
-	public TestCase(){
-	}
-	
-	public TestCase(String name){
-		this.name = name;
-	}
-	public String run(){
-		this.setUp();
-		return this.name;
-//		this.testMethod();
-	}
-	public void setUp(){
-		
-	}
-}
+    public void tearDown() {
+    	
+    }
+ 	
+ }
