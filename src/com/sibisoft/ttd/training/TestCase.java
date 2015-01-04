@@ -1,7 +1,7 @@
 package com.sibisoft.ttd.training;
 /*
  * By Nazia Khairani
- * Chapter # 18
+ * Chapter # 19
  * Dated 4th January 2015
  */
 public class TestCase {
@@ -14,7 +14,11 @@ public class TestCase {
 		this.name = name;
 	}
 	public String run(){
+		this.setUp();
 		return this.name;
 //		this.testMethod();
+	}
+	public void setUp(){
+		
 	}
 }
