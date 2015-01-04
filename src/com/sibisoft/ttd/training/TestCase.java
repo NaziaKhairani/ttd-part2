@@ -3,7 +3,7 @@ package com.sibisoft.ttd.training;
 import java.lang.reflect.Method;
 /*
  * By Nazia Khairani
- * Chapter # 21 
+ * Chapter # 22 
  * Dated 4th January 2015
  */
 public class TestCase {
@@ -23,27 +23,28 @@ public class TestCase {
 
 	public TestResult run(){
 		TestResult testResult = new TestResult();
+		testResult.testStarted();
+		setUp();
+		
 		try{
-			testResult.testStarted();
-			setUp();
 			Method method = this.getClass().getMethod(testMethodName);
 			method.invoke(this);
-			tearDown();
 		}
 		catch(Exception exp){
 			exp.getMessage();
+			testResult.testFailed();
 		}
+		tearDown();
 		return testResult;
 	}
 	
 	public void setUp() {
-		
+
 	}
 	public void tearDown() {
 		
 	}
 	
-	/* For Learning purpose */
 	public void toDefineReflection() {
 		String defineReflection = 
 				"\n The name reflection is used to describe code which is able to inspect other code in the same system (or itself)." +
