@@ -3,7 +3,7 @@ package com.sibisoft.ttd.training;
 import java.lang.reflect.Method;
 /*
  * By Nazia Khairani
- * Chapter # 22 
+ * Chapter # 23 
  * Dated 4th January 2015
  */
 public class TestCase {
@@ -21,8 +21,8 @@ public class TestCase {
 		this.testMethodName = testMethodName;
 	}
 
-	public TestResult run(){
-		TestResult testResult = new TestResult();
+	public TestResult run(TestResult testResult){
+		// TestResult testResult = new TestResult();
 		testResult.testStarted();
 		setUp();
 		
@@ -39,7 +39,7 @@ public class TestCase {
 	}
 	
 	public void setUp() {
-
+		
 	}
 	public void tearDown() {
 		
